@@ -1,14 +1,13 @@
-// MoodForm.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 
 const MoodForm = () => {
   const [mood, setMood] = useState("");
-  const [selectedEmoji, setSelectedEmoji] = useState("");
+  const [, setSelectedEmoji] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Enregistrer l'humeur
+
     console.log("Mood submitted:", mood);
   };
 
@@ -72,7 +71,12 @@ const MoodForm = () => {
         </button>
       </form>
       {message && (
-        <div className="mt-4 bg-gray-100 p-3 rounded-md">{message}</div>
+        <div
+          data-testid="selected-emoji-message"
+          className="mt-4 bg-gray-100 p-3 rounded-md"
+        >
+          {message}
+        </div>
       )}
     </div>
   );
